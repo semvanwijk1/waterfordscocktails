@@ -1,0 +1,143 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+:root {
+    --dark-blue: #001f3f; /* Klassiek Waterfords Blauw */
+    --white: #ffffff;
+    --light-gray: #f4f4f4;
+    --transition: all 0.3s ease-in-out;
+    --font-main: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--white);
+    color: var(--dark-blue);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typografie */
+h1, h2, h3 { font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+a { text-decoration: none; color: inherit; cursor: pointer; }
+
+/* Layout Containers */
+.full-width { width: 100%; }
+.container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+
+/* Header & Nav */
+header {
+    background: var(--dark-blue);
+    color: var(--white);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+nav { display: flex; justify-content: space-between; align-items: center; }
+.logo img { height: 50px; }
+.nav-links { display: flex; list-style: none; gap: 20px; align-items: center; }
+
+/* Dropdown Menu */
+.dropdown { position: relative; }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: var(--dark-blue);
+    min-width: 180px;
+    top: 100%;
+    padding: 10px 0;
+}
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content a { display: block; padding: 10px 20px; font-size: 14px; }
+.dropdown-content a:hover { background: rgba(255,255,255,0.1); }
+
+/* Hero Sections */
+.hero {
+    height: 80vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0, 31, 63, 0.4); /* Overlay */
+}
+
+.hero-content { position: relative; z-index: 2; }
+.hero-content h1 { font-size: clamp(2rem, 5vw, 4rem); }
+
+/* Sections */
+section { padding: 80px 0; }
+.text-center { text-align: center; }
+
+/* Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 15px;
+    border: 1px solid var(--dark-blue);
+    font-family: inherit;
+}
+
+.btn {
+    background: var(--dark-blue);
+    color: var(--white);
+    padding: 15px 30px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover { background: #003366; }
+
+/* Footer */
+footer { background: var(--dark-blue); color: var(--white); padding: 40px 0; text-align: center; }
+
+/* Cookie Alert */
+#cookie-alert {
+    position: fixed; bottom: 0; width: 100%; background: #00152b; color: #fff;
+    padding: 20px; text-align: center; z-index: 9999; display: none;
+}
+
+/* Mobile Menu (Hamburger) */
+.hamburger { display: none; font-size: 30px; cursor: pointer; }
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; flex-direction: column; position: absolute; top: 100%;
+        left: 0; width: 100%; background: var(--dark-blue); padding: 20px;
+    }
+    .nav-links.active { display: flex; }
+    .hamburger { display: block; }
+    .dropdown-content { position: static; display: none; padding-left: 20px; }
+    .dropdown.active .dropdown-content { display: block; }
+}
+
+/* SEO Friendly Hidden Fields */
+.hidden { display: none; }
