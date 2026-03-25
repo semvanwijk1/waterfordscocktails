@@ -1,26 +1,21 @@
+// Vertalingen
 const translations = {
-    nl: {
-        home: "HOME", about: "OVER ONS", flavors: "SMAKEN", where: "SHOP", contact: "CONTACT",
-        cookie_text: "Wij gebruiken cookies om uw ervaring te verbeteren.",
-        hero_title: "PURE CRAFT"
-    },
-    en: {
-        home: "HOME", about: "ABOUT US", flavors: "FLAVORS", where: "SHOP", contact: "CONTACT",
-        cookie_text: "We use cookies to improve your experience.",
-        hero_title: "PURE CRAFT"
-    }
+    nl: { home: "HOME", about: "OVER ONS", flavors: "SMAKEN", where: "SHOP", contact: "CONTACT" },
+    en: { home: "HOME", about: "ABOUT US", flavors: "FLAVORS", where: "SHOP", contact: "CONTACT" }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    loadComponent('header', 'components/header.html');
-    loadComponent('footer', 'components/footer.html');
+    // Componenten inladen met punt-slash ./ (verplicht voor GitHub)
+    loadComponent('header', './components/header.html');
+    loadComponent('footer', './components/footer.html');
+    
     initAnimations();
 });
 
 async function loadComponent(id, path) {
     try {
-        const response = await fetch('./' + path);
-        if (!response.ok) throw new Error('Fout bij laden');
+        const response = await fetch(path);
+        if (!response.ok) throw new Error('Kon bestand niet vinden: ' + path);
         const html = await response.text();
         document.getElementById(id).innerHTML = html;
         
@@ -29,7 +24,7 @@ async function loadComponent(id, path) {
             updateLanguageUI();
         }
     } catch (err) {
-        console.error(err);
+        console.error('Component error:', err);
     }
 }
 
@@ -66,11 +61,7 @@ function setupNav() {
     }
 }
 
-function acceptCookies() {
-    document.getElementById('cookie-alert').style.display = 'none';
-    localStorage.setItem('cookiesAccepted', 'true');
-}
-
+// Scroll Progress Bar
 window.onscroll = function() {
     let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -78,3 +69,8 @@ window.onscroll = function() {
     const bar = document.getElementById("scroll-bar");
     if(bar) bar.style.width = scrolled + "%";
 };
+
+function acceptCookies() {
+    document.getElementById('cookie-alert').style.display = 'none';
+    localStorage.setItem('cookiesAccepted', 'true');
+}
