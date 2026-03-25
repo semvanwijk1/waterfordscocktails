@@ -1,27 +1,36 @@
 <div class="container">
     <nav>
         <div class="logo">
-            <a href="index.html"><img src="images/logo.webp" alt="Waterfords Cocktails Logo"></a>
+            <a href="index.html">
+                <img src="images/logo.webp" alt="Waterfords Cocktails" style="height: 40px;">
+            </a>
         </div>
-        <div class="hamburger">☰</div>
+        
+        <div class="hamburger" id="nav-toggle">
+            <span style="display: block; width: 25px; height: 2px; background: white; margin: 5px 0;"></span>
+            <span style="display: block; width: 15px; height: 2px; background: white; margin: 5px 0;"></span>
+        </div>
+
         <ul class="nav-links">
-            <li><a href="index.html" data-i18n="home">Home</a></li>
-            <li><a href="over-ons.html" data-i18n="about">Over Ons</a></li>
+            <li><a href="index.html" data-i18n="home">HOME</a></li>
+            <li><a href="over-ons.html" data-i18n="about">OVER ONS</a></li>
             <li class="dropdown">
-                <a href="onze-smaken.html" data-i18n="flavors">Onze Smaken ▾</a>
+                <a href="onze-smaken.html" data-i18n="flavors">SMAKEN ▾</a>
                 <div class="dropdown-content">
-                    <a href="vodka-ice.html">Vodka Ice</a>
-                    <a href="whisky-cola.html">Whisky Cola</a>
-                    <a href="gin-tonic.html">Gin & Tonic</a>
-                    <a href="italian-spritz.html">Italian Spritz</a>
+                    <a href="vodka-ice.html">VODKA ICE</a>
+                    <a href="whisky-cola.html">WHISKY COLA</a>
+                    <a href="gin-tonic.html">GIN & TONIC</a>
+                    <a href="italian-spritz.html">ITALIAN SPRITZ</a>
                 </div>
             </li>
-            <li><a href="waar-te-kopen.html" data-i18n="where">Waar te kopen</a></li>
-            <li><a href="contact.html" data-i18n="contact">Contact</a></li>
-            <li class="lang-switcher">
-                <span onclick="switchLang('nl')" style="cursor:pointer">🇳🇱</span> | 
-                <span onclick="switchLang('en')" style="cursor:pointer">🇬🇧</span>
+            <li><a href="waar-te-kopen.html" data-i18n="where">SHOP</a></li>
+            <li><a href="contact.html" data-i18n="contact">CONTACT</a></li>
+            <li style="margin-left: 20px;">
+                <span onclick="switchLang('nl')" style="cursor:pointer; font-size: 14px;">NL</span>
+                <span style="opacity: 0.3;">|</span>
+                <span onclick="switchLang('en')" style="cursor:pointer; font-size: 14px;">EN</span>
             </li>
         </ul>
     </nav>
 </div>
+<div class="scroll-progress" id="scroll-bar"></div>

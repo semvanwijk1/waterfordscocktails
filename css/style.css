@@ -1,143 +1,128 @@
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
-
-:root {
-    --dark-blue: #001f3f; /* Klassiek Waterfords Blauw */
-    --white: #ffffff;
-    --light-gray: #f4f4f4;
-    --transition: all 0.3s ease-in-out;
-    --font-main: 'Montserrat', sans-serif;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-main);
-    background-color: var(--white);
-    color: var(--dark-blue);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Typografie */
-h1, h2, h3 { font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-a { text-decoration: none; color: inherit; cursor: pointer; }
-
-/* Layout Containers */
-.full-width { width: 100%; }
-.container { width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 20px; }
-
-/* Header & Nav */
+/* --- ULTRA MODERN HEADER EXTRA'S --- */
 header {
-    background: var(--dark-blue);
-    color: var(--white);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    padding: 15px 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-nav { display: flex; justify-content: space-between; align-items: center; }
-.logo img { height: 50px; }
-.nav-links { display: flex; list-style: none; gap: 20px; align-items: center; }
-
-/* Dropdown Menu */
-.dropdown { position: relative; }
-.dropdown-content {
-    display: none;
+/* De Scroll Progress Bar */
+.scroll-progress {
     position: absolute;
-    background: var(--dark-blue);
-    min-width: 180px;
-    top: 100%;
-    padding: 10px 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent), #fff);
+    width: 0%;
+    transition: width 0.1s ease-out;
 }
-.dropdown:hover .dropdown-content { display: block; }
-.dropdown-content a { display: block; padding: 10px 20px; font-size: 14px; }
-.dropdown-content a:hover { background: rgba(255,255,255,0.1); }
 
-/* Hero Sections */
-.hero {
-    height: 80vh;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
+.logo img {
+    transition: transform 0.5s ease;
+    filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.2));
+}
+
+.logo:hover img {
+    transform: scale(1.1) rotate(2deg);
+}
+
+/* Nav Link Hover Animation */
+.nav-links a {
+    position: relative;
+    overflow: hidden;
+    padding: 5px 0;
+}
+
+.nav-links a::before {
+    content: attr(data-i18n);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: var(--accent);
+    transition: transform 0.3s;
+}
+
+.nav-links a:hover {
+    transform: translateY(-20px);
+    opacity: 0; /* Verbergt originele tekst */
+}
+/* Let op: bovenstaande is een 'creative' hover, voor nu houden we het simpel met de onderlijn uit de vorige stap voor betere leesbaarheid */
+
+/* --- ULTRA MODERN FOOTER --- */
+footer {
+    position: relative;
+    background: #00050a;
+    padding: 100px 0 40px;
+    overflow: hidden;
+}
+
+/* De bewegende gloed in de achtergrond */
+footer::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: var(--accent);
+    filter: blur(150px);
+    opacity: 0.1;
+    animation: pulseGlow 10s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    from { opacity: 0.05; width: 300px; }
+    to { opacity: 0.15; width: 500px; }
+}
+
+.footer-big-text {
+    font-family: var(--font-header);
+    font-size: clamp(3rem, 15vw, 10rem);
+    opacity: 0.03;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 0.8;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.back-to-top {
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: var(--white);
-    position: relative;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    top:0; left:0; width:100%; height:100%;
-    background: rgba(0, 31, 63, 0.4); /* Overlay */
-}
-
-.hero-content { position: relative; z-index: 2; }
-.hero-content h1 { font-size: clamp(2rem, 5vw, 4rem); }
-
-/* Sections */
-section { padding: 80px 0; }
-.text-center { text-align: center; }
-
-/* Form */
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contact-form input, .contact-form textarea {
-    padding: 15px;
-    border: 1px solid var(--dark-blue);
-    font-family: inherit;
-}
-
-.btn {
-    background: var(--dark-blue);
-    color: var(--white);
-    padding: 15px 30px;
-    border: none;
-    text-transform: uppercase;
-    font-weight: bold;
     cursor: pointer;
-    transition: var(--transition);
+    margin: 40px auto;
+    transition: 0.4s;
+    color: var(--accent);
 }
 
-.btn:hover { background: #003366; }
-
-/* Footer */
-footer { background: var(--dark-blue); color: var(--white); padding: 40px 0; text-align: center; }
-
-/* Cookie Alert */
-#cookie-alert {
-    position: fixed; bottom: 0; width: 100%; background: #00152b; color: #fff;
-    padding: 20px; text-align: center; z-index: 9999; display: none;
+.back-to-top:hover {
+    background: var(--accent);
+    color: var(--primary);
+    box-shadow: 0 0 20px var(--accent);
+    transform: translateY(-5px);
 }
 
-/* Mobile Menu (Hamburger) */
-.hamburger { display: none; font-size: 30px; cursor: pointer; }
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; flex-direction: column; position: absolute; top: 100%;
-        left: 0; width: 100%; background: var(--dark-blue); padding: 20px;
-    }
-    .nav-links.active { display: flex; }
-    .hamburger { display: block; }
-    .dropdown-content { position: static; display: none; padding-left: 20px; }
-    .dropdown.active .dropdown-content { display: block; }
+.social-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
-/* SEO Friendly Hidden Fields */
-.hidden { display: none; }
+.social-links a {
+    font-size: 12px;
+    font-family: var(--font-header);
+    letter-spacing: 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    opacity: 1;
+    color: var(--accent);
+}
