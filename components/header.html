@@ -1,16 +1,9 @@
 <div class="container">
     <nav>
         <div class="logo">
-            <a href="index.html">
-                <img src="images/logo.webp" alt="Waterfords Cocktails" style="height: 40px;">
-            </a>
+            <a href="index.html"><img src="images/logo.webp" alt="Waterfords Logo"></a>
         </div>
         
-        <div class="hamburger" id="nav-toggle">
-            <span style="display: block; width: 25px; height: 2px; background: white; margin: 5px 0;"></span>
-            <span style="display: block; width: 15px; height: 2px; background: white; margin: 5px 0;"></span>
-        </div>
-
         <ul class="nav-links">
             <li><a href="index.html" data-i18n="home">HOME</a></li>
             <li><a href="over-ons.html" data-i18n="about">OVER ONS</a></li>
@@ -25,10 +18,10 @@
             </li>
             <li><a href="waar-te-kopen.html" data-i18n="where">SHOP</a></li>
             <li><a href="contact.html" data-i18n="contact">CONTACT</a></li>
-            <li style="margin-left: 20px;">
-                <span onclick="switchLang('nl')" style="cursor:pointer; font-size: 14px;">NL</span>
-                <span style="opacity: 0.3;">|</span>
-                <span onclick="switchLang('en')" style="cursor:pointer; font-size: 14px;">EN</span>
+            
+            <li class="lang-switcher">
+                <span class="lang-btn" onclick="switchLang('nl')">NL</span>
+                <span class="lang-btn" onclick="switchLang('en')">EN</span>
             </li>
         </ul>
     </nav>
