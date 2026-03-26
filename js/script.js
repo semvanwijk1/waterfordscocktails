@@ -1,31 +1,41 @@
-// Vertalingen
 const translations = {
-    nl: { home: "HOME", about: "OVER ONS", flavors: "SMAKEN", where: "SHOP", contact: "CONTACT" },
-    en: { home: "HOME", about: "ABOUT US", flavors: "FLAVORS", where: "SHOP", contact: "CONTACT" }
+    nl: {
+        home: "HOME", about: "OVER ONS", flavors: "SMAKEN", where: "SHOP", contact: "CONTACT",
+        hero_tag: "WATERFORDS 0.0%",
+        hero_main: "ZUIVER AMBACHT",
+        btn_discover: "ONTDEK DE SMAKEN",
+        quality_title: "Kwaliteit zonder compromis",
+        quality_text: "Geen alcohol, wel de beleving. Waterfords brengt de luxe van de cocktailbar naar jouw huis.",
+        footer_contact: "CONTACT",
+        footer_socials: "SOCIALS",
+        footer_flavors: "SMAKEN",
+        footer_text: "Ambachtelijke 0.0% cocktails uit Den Haag."
+    },
+    en: {
+        home: "HOME", about: "ABOUT US", flavors: "FLAVORS", where: "SHOP", contact: "CONTACT",
+        hero_tag: "WATERFORDS 0.0%",
+        hero_main: "PURE CRAFT",
+        btn_discover: "DISCOVER FLAVORS",
+        quality_title: "Quality without compromise",
+        quality_text: "No alcohol, but the full experience. Waterfords brings the luxury of the cocktail bar to your home.",
+        footer_contact: "CONTACT",
+        footer_socials: "SOCIALS",
+        footer_flavors: "FLAVORS",
+        footer_text: "Handcrafted 0.0% cocktails from The Hague."
+    }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Componenten inladen met punt-slash ./ (verplicht voor GitHub)
     loadComponent('header', './components/header.html');
     loadComponent('footer', './components/footer.html');
-    
     initAnimations();
 });
 
 async function loadComponent(id, path) {
-    try {
-        const response = await fetch(path);
-        if (!response.ok) throw new Error('Kon bestand niet vinden: ' + path);
-        const html = await response.text();
-        document.getElementById(id).innerHTML = html;
-        
-        if (id === 'header') {
-            setupNav();
-            updateLanguageUI();
-        }
-    } catch (err) {
-        console.error('Component error:', err);
-    }
+    const res = await fetch(path);
+    const html = await res.text();
+    document.getElementById(id).innerHTML = html;
+    updateLanguageUI();
 }
 
 function updateLanguageUI() {
@@ -50,27 +60,5 @@ function initAnimations() {
 
     setTimeout(() => {
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    }, 600);
-}
-
-function setupNav() {
-    const burger = document.getElementById('nav-toggle');
-    const nav = document.querySelector('.nav-links');
-    if(burger) {
-        burger.onclick = () => nav.classList.toggle('active');
-    }
-}
-
-// Scroll Progress Bar
-window.onscroll = function() {
-    let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let scrolled = (winScroll / height) * 100;
-    const bar = document.getElementById("scroll-bar");
-    if(bar) bar.style.width = scrolled + "%";
-};
-
-function acceptCookies() {
-    document.getElementById('cookie-alert').style.display = 'none';
-    localStorage.setItem('cookiesAccepted', 'true');
+    }, 500);
 }

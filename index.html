@@ -3,40 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waterfords Cocktails | Premium 0.0% Alcoholvrij</title>
-    <!-- Belangrijk: Geen / voor de mapnaam -->
+    <title>Waterfords Cocktails | Premium 0.0%</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Hier komt de header via script.js -->
+    <div class="bg-blob"></div> <!-- De bewegende achtergrond -->
     <header id="header"></header>
 
     <main>
         <section class="hero" style="background-image: url('images/hero-home.webp');">
             <div class="hero-content reveal">
-                <p>Waterfords 0.0%</p>
-                <h1>PURE<br>CRAFT</h1>
+                <p data-i18n="hero_tag">WATERFORDS 0.0%</p>
+                <h1 data-i18n="hero_main">ZUIVER AMBACHT</h1>
                 <br>
-                <a href="onze-smaken.html" class="btn-modern">ONTDEK DE SMAKEN</a>
-            </div>
-            
-            <!-- Zwevend logo effect -->
-            <div style="position: absolute; right: 10%; animation: float 6s ease-in-out infinite;" class="reveal">
-                <img src="images/logo.webp" alt="Waterfords" style="width: 200px; opacity: 0.5;">
+                <a href="onze-smaken.html" class="btn-modern" data-i18n="btn_discover">ONTDEK DE SMAKEN</a>
             </div>
         </section>
 
-        <section class="container" style="padding: 100px 0;">
+        <section class="container" style="padding: 120px 0;">
             <div class="glass-card reveal text-center">
-                <h2>Kwaliteit zonder compromis</h2>
-                <p>Geen alcohol, wel de beleving. Waterfords brengt de luxe van de cocktailbar naar jouw huis.</p>
+                <h2 data-i18n="quality_title">Kwaliteit zonder compromis</h2>
+                <p data-i18n="quality_text">Geen alcohol, wel de beleving. Waterfords brengt de luxe van de cocktailbar naar jouw huis.</p>
             </div>
         </section>
     </main>
 
-    <!-- Hier komt de footer via script.js -->
     <footer id="footer"></footer>
-
     <script src="js/script.js"></script>
 </body>
 </html>
